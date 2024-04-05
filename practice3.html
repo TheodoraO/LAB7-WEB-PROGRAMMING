@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Verification</title>
+</head>
+<body>
+
+<form id="passwordForm">
+  <label for="firstPassword">First Password:</label>
+  <input type="password" id="firstPassword" required><br><br>
+
+  <label for="secondPassword">Second Password:</label>
+  <input type="password" id="secondPassword" required><br><br>
+
+  <input type="button" value="Validate Your Passwords" onclick="validatePasswords()">
+</form>
+
+<script>
+  function validatePasswords() {
+    var firstPassword = document.getElementById('firstPassword').value;
+    var secondPassword = document.getElementById('secondPassword').value;
+
+    if (firstPassword.length < 8 || secondPassword.length < 8) {
+      alert('Passwords must be at least eight characters long.');
+      return;
+    }
+
+    if (firstPassword !== secondPassword) {
+      alert('The passwords do not match. Please try again.');
+      return;
+    }
+
+    alert('Two passwords are matched.');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Control</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  #customizable-paragraph {
+    margin: 10px 0;
+    border: 2px solid black; /* Default border */
+    padding: 10px;
+  }
+
+  .input-label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input[type="number"] {
+    margin-bottom: 10px;
+  }
+
+  input[type="button"] {
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<p id="customizable-paragraph">Box to be altered...</p>
+
+<label class="input-label">Border R(0-255): <input type="number" id="border-r" min="0" max="255"></label>
+<label class="input-label">Border G(0-255): <input type="number" id="border-g" min="0" max="255"></label>
+<label class="input-label">Border B(0-255): <input type="number" id="border-b" min="0" max="255"></label>
+<label class="input-label">Border Width: <input type="number" id="border-width"></label>
+
+<label class="input-label">Background R(0-255): <input type="number" id="bg-r" min="0" max="255"></label>
+<label class="input-label">Background G(0-255): <input type="number" id="bg-g" min="0" max="255"></label>
+<label class="input-label">Background B(0-255): <input type="number" id="bg-b" min="0" max="255"></label>
+
+<input type="button" value="Change the color!" onclick="changeColors()">
+
+<script>
+  function changeColors() {
+    var paragraph = document.getElementById('customizable-paragraph');
+    var borderR = document.getElementById('border-r').value;
+    var borderG = document.getElementById('border-g').value;
+    var borderB = document.getElementById('border-b').value;
+    var borderWidth = document.getElementById('border-width').value;
+
+    var bgR = document.getElementById('bg-r').value;
+    var bgG = document.getElementById('bg-g').value;
+    var bgB = document.getElementById('bg-b').value;
+
+    var borderColor = 'rgb(' + borderR + ', ' + borderG + ', ' + borderB + ')';
+    var backgroundColor = 'rgb(' + bgR + ', ' + bgG + ', ' + bgB + ')';
+
+    paragraph.style.borderColor = borderColor;
+    paragraph.style.borderWidth = borderWidth + 'px';
+    paragraph.style.backgroundColor = backgroundColor;
+  }
+</script>
+
+</body>
+</html>
